@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGlobalState } from '../scripts/Provider';
 
 const Example1: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [state, dispatch] = useGlobalState();
+
+  useEffect(() => { console.log("name changed") }, [state.name]);
 
   return (
     <div className="App">
