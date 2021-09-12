@@ -15,9 +15,11 @@ const Example1: React.FC = () => {
       <input type="text" value={state.name} onChange={e => dispatch(s => s.name = e.target.value)} />
       <div>global : {state.user.name}</div>
       <input type="text" value={state.user.name} onChange={e => dispatch(s => s.user.name = e.target.value)} />
-      <div>
-        {state.friendList.map((friend, index) => <div key={index}>{friend.name} {friend.age}</div>)}
-      </div>
+      <div>{
+        state.friendList.map(
+          (friend, index) => <div key={index}>{friend.name} {friend.age}</div>
+        )
+      }</div>
       <button onClick={() => dispatch(s => s.friendList.push({ name: "f", age: 5 }))}>add</button>
     </div>
   );

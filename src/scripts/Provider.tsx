@@ -4,7 +4,7 @@ import { initialState, reducer, State } from "./reducer";
 const stateContext = React.createContext(initialState);
 const dispatchContext = createContext((() => true) as React.Dispatch<(state: State) => void>);
 
-export const Provider: React.FunctionComponent = ({ children }) => {
+export const Provider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <dispatchContext.Provider value={dispatch}>

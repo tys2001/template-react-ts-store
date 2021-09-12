@@ -1,4 +1,4 @@
-type User = {
+export type User = {
   name: string,
   age: number,
 }
@@ -8,7 +8,7 @@ export type State = {
   age: number,
   user: User,
   friendList: User[],
-}
+};
 
 export const initialState: State = {
   name: "me",
@@ -21,7 +21,7 @@ export const initialState: State = {
 };
 
 export const reducer = (state: State, action: (state: State) => void) => {
-  const copyState = JSON.parse(JSON.stringify(state));
+  const copyState = JSON.parse(JSON.stringify(state)) as State;
   action(copyState);
   return copyState;
 };
